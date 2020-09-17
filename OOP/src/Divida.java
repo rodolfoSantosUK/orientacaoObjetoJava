@@ -7,7 +7,6 @@ public class Divida {
 
     private double total;
     private String credor;
-    private String cnjCredor;
     private Cnpj cnpjCredor = new Cnpj();
     private Pagamentos pagamentos = new Pagamentos();
 
@@ -22,8 +21,6 @@ public class Divida {
     public void setCnpjCredor(Cnpj cnpjCredor) {
         this.cnpjCredor = cnpjCredor;
     }
-
-
 
     public double getTotal() {
         return total;
@@ -41,15 +38,7 @@ public class Divida {
         this.credor = credor;
     }
 
-    public String getCnjCredor() {
-        return cnjCredor;
+    public void registraPagamento(Pagamento pagamento) {
+        this.pagamentos.registraPagamento(pagamento);
     }
-
-    public void setCnjCredor(String cnjCredor) {
-        this.cnjCredor = cnjCredor;
-    }
-
-
-
-
 }

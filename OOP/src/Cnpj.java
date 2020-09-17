@@ -10,6 +10,13 @@ public class Cnpj {
         this.valor = valor;
     }
 
+    @Override
+    public String toString() {
+        return "Cnpj{" +
+                "valor='" + valor + '\'' +
+                '}';
+    }
+
     public boolean cnpjValido() {
         return primeiroDigitoVerificador() == primeiroDigitoCorreto() &&
                 segundoDigitoVerificador() == segundoDigitoCorreto();

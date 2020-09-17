@@ -4,28 +4,26 @@ import java.util.List;
 
 public class Divida {
 
-    double valorPago;
-    double total;
-    String credor;
-    String cnjCredor;
 
-    private List<Pagamento> pagamentos = new ArrayList<Pagamento>();
+    private double total;
+    private String credor;
+    private String cnjCredor;
+    private Cnpj cnpjCredor = new Cnpj();
+    private Pagamentos pagamentos = new Pagamentos();
 
-    public List<Pagamento> getPagamentos() {
-        return Collections.unmodifiableList(pagamentos);
+    public Pagamentos getPagamentos() {
+        return pagamentos;
     }
 
-    public void adicionaPagamento(Pagamento pagamento) {
-        this.pagamentos.add(pagamento);
+    public Cnpj getCnpjCredor() {
+        return cnpjCredor;
     }
 
-    public double getValorPago() {
-        return valorPago;
+    public void setCnpjCredor(Cnpj cnpjCredor) {
+        this.cnpjCredor = cnpjCredor;
     }
 
-    public void setValorPago(double valorPago) {
-        this.valorPago = valorPago;
-    }
+
 
     public double getTotal() {
         return total;
@@ -51,20 +49,7 @@ public class Divida {
         this.cnjCredor = cnjCredor;
     }
 
-    private void paga(double valor) {
-        if (valor < 0) {
-            throw new IllegalArgumentException("Valor nao pode ser menor do que zero");
-        }
-        if (valor > 100) {
-            valor = valor - 8;
-        }
-        this.valorPago += valor;
-    }
 
-    public void registraPagamento(Pagamento pagamento ) {
-       this.adicionaPagamento(pagamento);
-       this.paga(pagamento.getValor());
-    }
 
 
 }
